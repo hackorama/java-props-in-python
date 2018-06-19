@@ -9,16 +9,16 @@ Follows the [java properties file format](http://docs.oracle.com/javase/6/docs/a
 `dict getJavaProperties(file)`
 
 - Args:
- - file: a valid file object (as returned by `open(filename)`)
+  - file: a valid file object (as returned by `open(filename)`)
 - Returns:
- - The property key and elements as a dict
+  - The property key and elements as a dict
 - Raises:
- - `IOError`: if file operation fails with I/O related reason
-  - Corresponds to java `IOException` in `Properties.load()`
- - `UnicodeDecodeError`: if the property file has malformed `\uxxxx` encoding,
-  - Corresponds to java `IllegalArgumentException` in `Properties.load()`
- - `AttributeError`: if invalid object was provided for file object
-  - Corresponds to java `NullPointerException`
+  - `IOError`: if file operation fails with I/O related reason
+    - Corresponds to java `IOException` in `Properties.load()`
+  - `UnicodeDecodeError`: if the property file has malformed `\uxxxx` encoding,
+    - Corresponds to java `IllegalArgumentException` in `Properties.load()`
+  - `AttributeError`: if invalid object was provided for file object
+    - Corresponds to java `NullPointerException`
 
 ## Example
 
