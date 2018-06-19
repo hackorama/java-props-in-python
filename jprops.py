@@ -21,15 +21,15 @@ def getJavaProperties(propfile):
         AttributeError: if invalid object was provided for file object
             Corresponds to java NullPointerException
             
-    Author: Kishan Thomas <kishan@hackorama.com>
+    Author: Kishan Thomas <kishan.thomas@gmail.com> www.hackorama.com
     """
     LINE_BREAKS = '\n\r\f' #end-of-line, carriage-return, form-feed
     ESC_DELIM = r'\\' # '\'
     ESCAPED_ESC_DELIM = r'\\\\' # '\\'
     COMMENT_LINE = re.compile('\s*[#!].*') # starts with #|! ignore white space
     MULTI_LINE = re.compile(r'.*[\\]\s*$') # ending with '\' ignore white space
-    # non escaped  =|:|' ', include surrounding non escaped white space
-    SPLIT_DELIM = re.compile(r'(?<!\\)\s*(?<!\\)[=: ]\s*')
+    # non escaped  =|:|' '|tab|formfeed, include surrounding non escaped white space
+    SPLIT_DELIM = re.compile(r'(?<!\\)\s*(?<!\\)[=: \t\f]\s*')
     # match escape characters '\', except escaped '\\' and unicode escape '\u'
     VALID_ESC_DELIM = r'(?<!\\)[\\](?!u)'
     DEFAULT_ELEMENT = ''
