@@ -27,7 +27,7 @@ def getJavaProperties(propfile):
     ESC_DELIM = r'\\' # '\'
     ESCAPED_ESC_DELIM = r'\\\\' # '\\'
     COMMENT_LINE = re.compile('\s*[#!].*') # starts with #|! ignore white space
-    MULTI_LINE = re.compile(r'.*[\\]\s*$') # ending with '\' ignore white space
+    MULTI_LINE = re.compile(r'.*[\\]\.*$') # ending with '\' ignore white space and tabs
     # non escaped  =|:|' '|tab|formfeed, include surrounding non escaped white space
     SPLIT_DELIM = re.compile(r'(?<!\\)\s*(?<!\\)[=: \t\f]\s*')
     # match escape characters '\', except escaped '\\' and unicode escape '\u'
