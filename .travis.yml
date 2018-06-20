@@ -1,0 +1,22 @@
+language: python 
+
+python:
+  - '2.7'
+
+os:
+  - linux
+
+install:
+  - pip install codecov
+
+addons:
+  apt:
+    packages:
+      - oracle-java8-set-default
+
+script:
+  - cd test 
+  - ./test.sh 
+
+after_success:
+  - codecov
