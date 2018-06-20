@@ -2,6 +2,11 @@
 
 # Test helper script for jprops
 #
+# Requires:
+#     Python 2.7
+#     Python Coverage (pip install coverage)
+#     Java
+#
 # Kishan Thomas <kishan.thomas@gmail.com>
 
 RED='\033[0;31m'
@@ -16,7 +21,7 @@ javac Test.java
 java Test > java.props.out
 # Use Python jprops and get all the properties ordered by key from test.properties
 #python test.py > python.props.out
-python test.py > python.props.out
+coverage run test.py > python.props.out
 
 JAVA_COUNT=$( expr $(wc -l java.props.out|awk '{ print $1}') - 2 )
 PYTHON_COUNT=$( expr $(wc -l python.props.out|awk '{ print $1}') - 2 )
@@ -41,3 +46,5 @@ else
   echo -e "${RED}Test Fail: Not all $JAVA_COUNT properties match${NC}"
   exit 1
 fi
+coverage report -m
+coverage html
